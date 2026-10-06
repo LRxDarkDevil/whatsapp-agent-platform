@@ -1,0 +1,17 @@
+{
+  "name": "whatsapp-agent-platform-workspace",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "whatsapp-agent-sdk",
+    "whatsapp-agent-mcp"
+  ],
+  "scripts": {
+    "check": "npm run check -w whatsapp-agent-sdk && npm run check -w whatsapp-agent-mcp",
+    "test": "npm test -w whatsapp-agent-sdk && npm test -w whatsapp-agent-mcp"
+  },
+  "dependencies": {
+    "whatsapp-agent-mcp": "^0.1.0",
+    "whatsapp-agent-sdk": "^0.1.0"
+  }
+}

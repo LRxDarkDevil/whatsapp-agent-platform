@@ -1,0 +1,71 @@
+{
+  "name": "whatsapp-agent-mcp",
+  "version": "0.1.0",
+  "description": "Community MCP server for WhatsApp's personal Agent Platform API.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "whatsapp",
+    "whatsapp-agent",
+    "ai-agent",
+    "typescript"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "whatsapp-agent-mcp": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    "PUBLISHING.md",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run clean && tsc -p tsconfig.build.json && node scripts/finalize-build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test && npm run build",
+    "prepack": "npm run check",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.1.1",
+    "@modelcontextprotocol/server": "^2.3.0",
+    "whatsapp-agent-sdk": "^0.1.0",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.3.0",
+    "@types/node": "^24.7.2",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LRxDarkDevil/whatsapp-agent-platform.git",
+    "directory": "whatsapp-agent-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/LRxDarkDevil/whatsapp-agent-platform/issues"
+  },
+  "homepage": "https://github.com/LRxDarkDevil/whatsapp-agent-platform/tree/main/whatsapp-agent-mcp#readme"
+}

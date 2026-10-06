@@ -1,0 +1,70 @@
+{
+  "name": "whatsapp-agent-sdk",
+  "version": "0.1.0",
+  "description": "Community TypeScript/Node.js SDK for WhatsApp's personal Agent Platform API (/agent/v1).",
+  "keywords": [
+    "whatsapp",
+    "whatsapp-agent",
+    "whatsapp-agent-platform",
+    "ai-agent",
+    "personal-agent",
+    "agent",
+    "sdk",
+    "typescript",
+    "nodejs",
+    "meta"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "PUBLISHING.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run clean && tsc -p tsconfig.build.esm.json && tsc -p tsconfig.build.cjs.json && node scripts/finalize-build.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run test && npm run build",
+    "prepack": "npm run check"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LRxDarkDevil/whatsapp-agent-platform.git",
+    "directory": "whatsapp-agent-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/LRxDarkDevil/whatsapp-agent-platform/issues"
+  },
+  "homepage": "https://github.com/LRxDarkDevil/whatsapp-agent-platform/tree/main/whatsapp-agent-sdk#readme"
+}
